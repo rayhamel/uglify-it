@@ -7,7 +7,7 @@ module ApplicationHelper
     Nokogiri::HTML(Loofah.document(src).scrub!(:prune).to_s).to_s
   end
 
-  class HTMLParser
+  class URLParser
     include HTTParty
 
     def self.parse_url(url)
@@ -16,7 +16,7 @@ module ApplicationHelper
   end
 
   def parse_url(url)
-    HTMLParser.parse_url(url)
+    URLParser.parse_url(url)
   end
 
   def save_html(url)
