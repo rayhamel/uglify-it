@@ -7,17 +7,22 @@ module ApplicationHelper
     Nokogiri::HTML(Loofah.document(src).scrub!(:prune).to_s).to_s
   end
 
-  class HTMLSaver
+  class HTMLParser
     include HTTParty
 
-    def self.save_html(url)
-      strip_html(get(self.base_uri(url)).body)
-      rescue => e
-        puts e.inspect
+    def self.parse_url(url)
+      self.base_uri(url)
     end
   end
 
+  def parse_url(url)
+    HTMLParser.parse_url(url)
+  end
+
   def save_html(url)
-    HTMLSaver.save_html(url)
+    strip_html(HTTParty.get(parse_url(url)).body)
+    rescue SocketError
+      flash[:notice] = "#{url} is not a valid URL!"
+      redirect_to :back
   end
 end
