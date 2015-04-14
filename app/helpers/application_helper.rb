@@ -1,14 +1,23 @@
 module ApplicationHelper
-  def strip_html(source)
-    source.gsub!(/<script.*?<\/script>|style=".*?"|<style.*?<\/style>/mi, '')
-    source.gsub!(/<link.*?>|<iframe.*?<\/iframe>|color=".*?"|bgcolor=".*?"/mi, '')
-    source.gsub!(/onclick=".*?"|onmouseover=".*?"|onmouseout=".*?"/mi, '')
-    Nokogiri::HTML(source)
+  def strip_html(src)
+    src.gsub!(
+      /<link.*?>|<style.*?<\/style>|bgcolor=["'].*?["']|color=["'].*?["']|
+      style=["'].*?["']/imx, ''
+    )
+    Nokogiri::HTML(Loofah.document(src).scrub!(:prune).to_s).to_s
+  end
+
+  class HTMLSaver
+    include HTTParty
+
+    def self.save_html(url)
+      strip_html(get(self.base_uri(url)).body)
+      rescue => e
+        puts e.inspect
+    end
   end
 
   def save_html(url)
-    File.write('test3.html', strip_html(HTTParty.get(url).body))
-  rescue SocketError
-    puts 'Saved!'
+    HTMLSaver.save_html(url)
   end
 end

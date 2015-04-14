@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails', '5.5.1.0'
 gem 'devise'
 gem 'httparty'
+gem 'loofah'
 gem 'nokogiri'
 
 group :production do
