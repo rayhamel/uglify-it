@@ -1,0 +1,9 @@
+<%= form_for @webpage do |t| %>
+  <%= t.label :title, 'Title (optional)' %>
+  <%= t.text_field :title %>
+
+  <%= t.label :url %>
+  <%= t.text_field :url %>
+
+  <%= t.submit "Submit", class: "button radius" %>
+<% end %>

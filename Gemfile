@@ -32,6 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'foundation-rails', '5.5.1.0'
 gem 'devise'
+gem 'friendly_id'
 gem 'httparty'
 gem 'loofah'
 gem 'nokogiri'
