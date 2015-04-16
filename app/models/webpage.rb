@@ -1,5 +1,6 @@
 class Webpage < ActiveRecord::Base
   extend FriendlyId
+  include HTTParty
   include HTMLGettable
   friendly_id :slug_candidates, use: :slugged
 
