@@ -1,6 +1,15 @@
 module HTMLGettable
   extend ActiveSupport::Concern
 
+  def save_html
+    url = Domainatrix.parse(self.url).url
+    doc = strip_html(HTTParty.get(url).body)
+    fix_links(doc, URI.parse(url))
+    self.html = doc.to_s.force_encoding('iso8859-1').encode('utf-8')
+  end
+
+  private
+
   def strip_html(doc)
     doc.gsub!(
       /<link.*?>|<style.*?<\/style>|bgcolor=["'].*?["']|color=["'].*?["']|
@@ -21,12 +30,5 @@ module HTMLGettable
       uri.host = remote_url.host
       node[url_param] = uri.to_s
     end
-  end
-
-  def save_html
-    url = Domainatrix.parse(self.url).url
-    doc = strip_html(HTTParty.get(url).body)
-    fix_links(doc, URI.parse(url))
-    self.html = doc.to_s.force_encoding('iso8859-1').encode('utf-8')
   end
 end

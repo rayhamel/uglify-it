@@ -82,4 +82,6 @@ production:
   <<: *default
   database: uglify_it_production
   username: uglify_it
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
   password: <%= ENV['UGLIFY_IT_DATABASE_PASSWORD'] %>
