@@ -19,7 +19,7 @@ module HTMLGettable
   end
 
   def fix_links(doc, remote_url)
-    tags = { 'img' => 'src', 'a' => 'href' }
+    tags = { 'img' => 'src', 'a' => 'href', 'form' => 'action' }
     doc.search(tags.keys.join(',')).each do |node|
       url_param = tags[node.name]
       link = node[url_param]

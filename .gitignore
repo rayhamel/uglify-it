@@ -14,5 +14,3 @@
 
 # Ignore fonts.
 /app/assets/fonts
-
-url_regex.rb
