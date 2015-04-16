@@ -31,10 +31,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
+gem 'domainatrix'
 gem 'friendly_id'
 gem 'httparty'
 gem 'loofah'
 gem 'nokogiri'
+gem 'puma'
 
 group :production do
   gem 'rails_12factor'

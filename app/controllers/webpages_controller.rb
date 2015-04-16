@@ -15,11 +15,11 @@ class WebpagesController < ApplicationController
     if @webpage.save
       redirect_to webpage_path(@webpage)
     else
-      flash[:notice] = @webpage.errors.full_messages.join("! ")
+      flash.now[:errors] = @webpage.errors.full_messages.join("! ") + ?!
       render :new
     end
     rescue URI::InvalidURIError, SocketError
-      flash[:notice] = "#{@webpage.url} is not a valid URL!"
+      flash.now[:error] = "#{@webpage.url} is not a valid URL!"
       render :new
   end
 
