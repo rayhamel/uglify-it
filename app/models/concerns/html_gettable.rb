@@ -42,7 +42,7 @@ module HTMLGettable
     doc = strip_html(HTTParty.get(url).body)
     fix_links(doc, url)
     self.html = doc.to_s.force_encoding('iso8859-1').encode('utf-8')
-    rescue URI::InvalidURIError || SocketError
+    rescue URI::InvalidURIError, SocketError
       flash[:notice] = "#{url} is not a valid URL!"
       redirect_to :new
   end
