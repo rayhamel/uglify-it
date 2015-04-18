@@ -14,3 +14,4 @@
 
 # Ignore fonts.
 /app/assets/fonts
+/app/assets/javascripts/typekit.js

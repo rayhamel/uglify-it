@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require main
 
  */
+
+body { font-size: 12px; margin: 0; padding: 0;}
