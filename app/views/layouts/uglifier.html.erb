@@ -1,34 +1,89 @@
   <%= yield %>
-  <style>
-    span.tooltip {
-      display:inline-block;
+  <div class="uglifyoverlay"></div>
+
+  <span class="uglifytooltip">
+    <input type="button" class="uglifydismissbutton uglifyclosebutton" value="&times;">
+    <input type="button" class="uglifydismissbutton uglifyminbutton setmin" value="&mdash;">
+    <input type="button" class="uglifydismissbutton uglifyminbutton setmax" value="&mdash;">
+  </span>
+
+  <style type="text/css">
+    div.uglifyoverlay {
+      display: none;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      padding:0;
+      margin:0;
+      top: 0;
+      left: 0;
+      visibility: none;
+      z-index: 0;
+    }
+
+    span.uglifytooltip {
+      display: none;
       position: absolute;
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
       line-height: 20px;
-      padding: 10px;
+      padding: 0px;
       font-family: Helvetica, Arial, sans-serif;
       font-size: 24px;
       font-weight: bold;
-      text-align: left;
-      background: #66FF66;
-      border: 4px solid #66FF66;
+      background: #66CCFF;
+      border: 4px solid #66CCFF;
       border-radius: 4px;
       box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
       opacity: 0.92;
       filter: alpha(opacity=92);
     }
 
-    span.tooltip:after {
+    span.uglifytooltip:after {
       content: "";
       position: absolute;
       width: 0;
       height: 0;
       border-width: 10px;
       border-style: solid;
-      border-color: transparent #66FF66 transparent transparent;
+      border-color: transparent #66CCFF transparent transparent;
       top: -3px;
       left: -23px;
+    }
+
+    span.uglifytooltip .uglifydismissbutton {
+      display: inline-block;
+      float: right;
+      width: 22px;
+      height: 22px;
+      line-height: 0px;
+      padding: 0px;
+      font-weight: bold;
+      text-align: left;
+      background: none;
+      border: none;
+      opacity: 0.60;
+      filter: alpha(opacity=60);
+    }
+
+    span.uglifytooltip .uglifydismissbutton:hover {
+      opacity: 0.80;
+      filter: alpha(opacity=80);
+    }
+
+    span.uglifytooltip .uglifydismissbutton.uglifyminbutton {
+      margin-right: 2px;
+      padding-top: 11px;
+      font-size: 30px;
+    }
+
+    span.uglifytooltip .uglifydismissbutton.uglifyclosebutton {
+      padding-bottom: 6px;
+      font-size: 40px;
+    }
+
+    span.uglifytooltip .uglifydismissbutton.uglifyminbutton.setmax {
+      display: none;
     }
   </style>
   <%= javascript_include_tag 'application' %>
