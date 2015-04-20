@@ -5,26 +5,58 @@
     <input type="button" class="uglifydismissbutton uglifyclosebutton" value="&times;">
     <input type="button" class="uglifydismissbutton uglifyminbutton setmin" value="&mdash;">
     <input type="button" class="uglifydismissbutton uglifyminbutton setmax" value="&mdash;">
+
     <input type="button" class="uglifytoolbar uglifyfonts" value="Fonts">
     <input type="button" class="uglifytoolbar uglifyanimations" value="Animations">
     <input type="button" class="uglifytoolbar uglifybackgrounds" value="Backgrounds">
     <input type="button" class="uglifytoolbar uglifygifs" value="GIFs">
-    <input type="button" class="uglifyfontselect uglifycomicsans" value="Comic Sans">
-    <input type="button" class="uglifyfontselect uglifymonotypecorsiva" value="Corsiva">
-    <input type="button" class="uglifyfontselect uglifycouriernew" value="Courier">
-    <input type="button" class="uglifyfontselect uglifyimpact" value="Impact">
-    <input type="button" class="uglifyfontselect uglifypapyrus" value="Papyrus">
-    <div class="uglifycolorcontainer uglifyfontcolor">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifyred">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifyorange">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifyyellow">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifygreen">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifyblue">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifypurple">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifywhite">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifyaqua">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifyfuchsia">
-      <input type="button" class="uglifyfontcolorselect uglifycolor uglifylime">
+
+    <div class="uglifytool uglifyfonts">
+      <input type="button" class="uglifyfontselect uglifycomicsans" value="Comic Sans">
+      <input type="button" class="uglifyfontselect uglifymonotypecorsiva" value="Corsiva">
+      <input type="button" class="uglifyfontselect uglifycouriernew" value="Courier">
+      <input type="button" class="uglifyfontselect uglifyimpact" value="Impact">
+      <input type="button" class="uglifyfontselect uglifypapyrus" value="Papyrus">
+
+      <div class="uglifycolorcontainer">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyred">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyorange">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyyellow">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifygreen">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyblue">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifypurple">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifywhite">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyaqua">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyfuchsia">
+        <input type="button" class="uglifyfontcolorselect uglifycolor uglifylime">
+      </div>
+    </div>
+
+    <div class="uglifytool uglifybgs">
+      <div class="uglifybgcontainer">
+        <input type="button" class="uglifybgselect uglifystars">
+        <input type="button" class="uglifybgselect uglifyflag">
+        <input type="button" class="uglifybgselect uglifyflames">
+        <input type="button" class="uglifybgselect uglifymario">
+        <input type="button" class="uglifybgselect uglifyweed">
+        <input type="button" class="uglifybgselect uglifylasers">
+        <input type="button" class="uglifybgselect uglifymilkyway">
+        <input type="button" class="uglifybgselect uglifynebula">
+        <input type="button" class="uglifybgselect uglifysilk">
+      </div>
+
+      <div class="uglifycolorcontainer">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifyred">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifyorange">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifyyellow">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifygreen">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifyblue">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifypurple">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifywhite">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifyaqua">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifyfuchsia">
+        <input type="button" class="uglifybgcolorselect uglifycolor uglifylime">
+      </div>
     </div>
   </div>
 
@@ -122,12 +154,26 @@
       filter: alpha(opacity=80);
     }
 
+    div.uglifytooltip .uglifytool {
+      display: none;
+    }
+
+    div.uglifytooltip .uglifyfonts {
+      display: inline-block;
+    }
+
     div.uglifytooltip .uglifycolorcontainer {
       position: absolute;
-      float: right;
-      width: 70px;
-      top: 50px;
-      left: 138px;
+      width: 55px;
+      top: 52px;
+      left: 140px;
+    }
+
+    div.uglifytooltip .uglifybgcontainer {
+      position: absolute;
+      width: 137px;
+      top: 52px;
+      left: 3px;
     }
 
     div.uglifytooltip .uglifyfontselect {
@@ -184,43 +230,93 @@
     }
 
     div.uglifycolorcontainer .uglifyred {
-      background: red;
+      background-color: red;
     }
 
     div.uglifycolorcontainer .uglifyorange {
-      background: #ff6600;
+      background-color: #ff6600;
     }
 
     div.uglifycolorcontainer .uglifyyellow {
-      background: yellow;
+      background-color: yellow;
     }
 
     div.uglifycolorcontainer .uglifygreen {
-      background: green;
+      background-color: green;
     }
 
     div.uglifycolorcontainer .uglifyblue {
-      background: blue;
+      background-color: blue;
     }
 
     div.uglifycolorcontainer .uglifypurple {
-      background: purple;
+      background-color: purple;
     }
 
     div.uglifycolorcontainer .uglifywhite {
-      background: white;
+      background-color: white;
     }
 
     div.uglifycolorcontainer .uglifyaqua {
-      background: aqua;
+      background-color: aqua;
     }
 
     div.uglifycolorcontainer .uglifyfuchsia {
-      background: fuchsia;
+      background-color: fuchsia;
     }
 
     div.uglifycolorcontainer .uglifylime {
-      background: lime;
+      background-color: lime;
+    }
+
+    div.uglifybgcontainer .uglifybgselect {
+      width: 44px;
+      height: 44px;
+      margin-right: -7px;
+      border: none;
+    }
+
+    div.uglifybgcontainer .uglifystars {
+      background-image: url(<%= asset_path 'stars.gif' %>);
+    }
+
+    div.uglifybgcontainer .uglifyflag {
+      background-image: url(<%= asset_path 'flag.gif' %>);
+      background-position: center;
+    }
+
+    div.uglifybgcontainer .uglifyflames {
+      background-image: url(<%= asset_path 'flames.gif' %>);
+      background-position: right, bottom;
+    }
+
+    div.uglifybgcontainer .uglifymario {
+      background-image: url(<%= asset_path 'mario.gif' %>);
+      background-position: center;
+    }
+
+    div.uglifybgcontainer .uglifyweed {
+      background-image: url(<%= asset_path 'weed.gif' %>);
+      background-position: 15%, 10%;
+    }
+
+    div.uglifybgcontainer .uglifylasers {
+      background-image: url(<%= asset_path 'lasers.gif' %>);
+      background-position: 40%, 50%;
+    }
+
+    div.uglifybgcontainer .uglifymilkyway {
+      background-image: url(<%= asset_path 'milkyway.gif' %>);
+      background-position: 30%, 50%;
+    }
+
+    div.uglifybgcontainer .uglifynebula {
+      background-image: url(<%= asset_path 'nebula.gif' %>);
+      background-position: center;
+    }
+
+    div.uglifybgcontainer .uglifysilk {
+      background-image: url(<%= asset_path 'silk.gif' %>);
     }
   </style>
   <%= javascript_include_tag 'application' %>

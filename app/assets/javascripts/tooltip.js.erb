@@ -85,6 +85,82 @@ $(".uglifyfontcolorselect.uglifylime").on("click.fontLime", function() {
   $(uglifySelectEvent.target).css("color", "lime")
 });
 
+$(".uglifystars").on("click.stars", function() {
+  $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'stars.gif' %>)")
+});
+
+$(".uglifyflag").on("click.flag", function() {
+  $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'flag.gif' %>)")
+});
+
+$(".uglifyflames").on("click.flames", function() {
+  $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'flames.gif' %>)")
+});
+
+$(".uglifymario").on("click.mario", function() {
+  $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'mario.gif' %>)")
+});
+
+$(".uglifyweed").on("click.weed", function() {
+  $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'weed.gif' %>)")
+});
+
+$(".uglifylasers").on("click.lasers", function() {
+  $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'lasers.gif' %>)")
+});
+
+$(".uglifymilkyway").on("click.milkyWay", function() {
+  $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'milkyway.gif' %>)")
+});
+
+$(".uglifynebula").on("click.nebula", function() {
+  $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'nebula.gif' %>)")
+});
+
+$(".uglifysilk").on("click.silk", function() {
+  $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'silk.gif' %>)")
+});
+
+$(".uglifybgcolorselect.uglifyred").on("click.bgRed", function() {
+  $(uglifySelectEvent.target).css("background", "red")
+});
+
+$(".uglifybgcolorselect.uglifyorange").on("click.bgOrange", function() {
+  $(uglifySelectEvent.target).css("background", "#ff6600")
+});
+
+$(".uglifybgcolorselect.uglifyyellow").on("click.bgYellow", function() {
+  $(uglifySelectEvent.target).css("background", "yellow")
+});
+
+$(".uglifybgcolorselect.uglifygreen").on("click.bgGreen", function() {
+  $(uglifySelectEvent.target).css("background", "green")
+});
+
+$(".uglifybgcolorselect.uglifyblue").on("click.bgBlue", function() {
+  $(uglifySelectEvent.target).css("background", "blue")
+});
+
+$(".uglifybgcolorselect.uglifypurple").on("click.bgPurple", function() {
+  $(uglifySelectEvent.target).css("background", "purple")
+});
+
+$(".uglifybgcolorselect.uglifywhite").on("click.bgWhite", function() {
+  $(uglifySelectEvent.target).css("background", "white")
+});
+
+$(".uglifybgcolorselect.uglifyaqua").on("click.bgAqua", function() {
+  $(uglifySelectEvent.target).css("background", "aqua")
+});
+
+$(".uglifybgcolorselect.uglifyfuchsia").on("click.bgFuchsia", function() {
+  $(uglifySelectEvent.target).css("background", "fuchsia")
+});
+
+$(".uglifybgcolorselect.uglifylime").on("click.bgLime", function() {
+  $(uglifySelectEvent.target).css("background", "lime")
+});
+
 $(".uglifyminbutton.setmin").on("click.minTooltip", function (e) {
     $(".uglifyoverlay").show();
     $(this).hide();
@@ -102,6 +178,18 @@ $(".uglifyminbutton.setmax").on("click.maxTooltip", function (e) {
 $(".uglifyclosebutton").on("click.closeTooltip", function (e) {
     $(".uglifytooltip").hide();
     showTooltip();
+    return false;
+});
+
+$(".uglifybackgrounds").on("click.clickBackgrounds", function (e) {
+    $(".uglifytool").hide();
+    $(".uglifybgs").css("display", "inline-block");
+    return false;
+});
+
+$(".uglifyfonts").on("click.clickFonts", function (e) {
+    $(".uglifytool").hide();
+    $(".uglifyfonts").css("display", "inline-block");
     return false;
 });
 
