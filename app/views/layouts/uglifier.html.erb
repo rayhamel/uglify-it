@@ -19,16 +19,16 @@
       <input type="button" class="uglifyfontselect uglifypapyrus" value="Papyrus">
 
       <div class="uglifycolorcontainer">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyred">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyorange">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyyellow">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifygreen">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyblue">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifypurple">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifywhite">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyaqua">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifyfuchsia">
-        <input type="button" class="uglifyfontcolorselect uglifycolor uglifylime">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifyred">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifyorange">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifyyellow">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifygreen">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifyblue">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifypurple">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifywhite">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifyaqua">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifyfuchsia">
+        <input type="button" class="uglifyfontcolor uglifycolor uglifylime">
       </div>
     </div>
 
@@ -40,23 +40,25 @@
         <input type="button" class="uglifybgselect uglifymario">
         <input type="button" class="uglifybgselect uglifyweed">
         <input type="button" class="uglifybgselect uglifylasers">
-        <input type="button" class="uglifybgselect uglifymilkyway">
+        <input type="button" class="uglifybgselect uglifyisometric">
         <input type="button" class="uglifybgselect uglifynebula">
         <input type="button" class="uglifybgselect uglifysilk">
       </div>
 
       <div class="uglifycolorcontainer">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifyred">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifyorange">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifyyellow">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifygreen">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifyblue">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifypurple">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifywhite">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifyaqua">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifyfuchsia">
-        <input type="button" class="uglifybgcolorselect uglifycolor uglifylime">
+        <input type="button" class="uglifybgcolor uglifycolor uglifyred">
+        <input type="button" class="uglifybgcolor uglifycolor uglifyorange">
+        <input type="button" class="uglifybgcolor uglifycolor uglifyyellow">
+        <input type="button" class="uglifybgcolor uglifycolor uglifygreen">
+        <input type="button" class="uglifybgcolor uglifycolor uglifyblue">
+        <input type="button" class="uglifybgcolor uglifycolor uglifypurple">
+        <input type="button" class="uglifybgcolor uglifycolor uglifywhite">
+        <input type="button" class="uglifybgcolor uglifycolor uglifyaqua">
+        <input type="button" class="uglifybgcolor uglifycolor uglifyfuchsia">
+        <input type="button" class="uglifybgcolor uglifycolor uglifylime">
       </div>
+    </div>
+    <div class="uglifytool uglifygifs">
     </div>
   </div>
 
@@ -172,7 +174,7 @@
     div.uglifytooltip .uglifybgcontainer {
       position: absolute;
       width: 137px;
-      top: 52px;
+      top: 58px;
       left: 3px;
     }
 
@@ -223,10 +225,12 @@
     }
 
     div.uglifycolorcontainer .uglifycolor:hover {
-      width: 26px;
-      height: 26px;
+      width: 27px;
+      height: 27px;
       margin-bottom: 4px;
+      margin-top: -1px;
       margin-right: -2px;
+      margin-left: -1px;
     }
 
     div.uglifycolorcontainer .uglifyred {
@@ -305,9 +309,9 @@
       background-position: 40%, 50%;
     }
 
-    div.uglifybgcontainer .uglifymilkyway {
-      background-image: url(<%= asset_path 'milkyway.gif' %>);
-      background-position: 30%, 50%;
+    div.uglifybgcontainer .uglifyisometric {
+      background-image: url(<%= asset_path 'isometric.gif' %>);
+      background-position: 100%, 40%;
     }
 
     div.uglifybgcontainer .uglifynebula {
