@@ -17,9 +17,6 @@ class WebpagesController < ApplicationController
       flash.now[:errors] = @webpage.errors.full_messages.join("! ") + ?!
       render :new
     end
-    rescue URI::InvalidURIError, SocketError
-      flash.now[:error] = "#{@webpage.url} is not a valid URL!"
-      render :new
   end
 
   private
