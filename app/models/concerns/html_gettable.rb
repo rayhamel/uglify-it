@@ -29,14 +29,18 @@ module HTMLGettable
       'link' => 'href', 'script' => 'src', 'source' => 'src'
     }
     doc.search(tags.keys.join(',')).each do |node|
-      url_param = tags[node.name]
-      link = node[url_param]
-      next if link.nil? || link.empty?
-      uri = URI.parse(link)
-      next if uri.host
-      uri.scheme = remote_url.scheme
-      uri.host = remote_url.host
-      node[url_param] = uri.to_s
+      begin
+        url_param = tags[node.name]
+        link = node[url_param]
+        next if link.nil? || link.empty?
+        uri = URI.parse(link)
+        next if uri.host
+        uri.scheme = remote_url.scheme
+        uri.host = remote_url.host
+        node[url_param] = uri.to_s
+      rescue URI::InvalidURIError
+        next
+      end
     end
   end
 end

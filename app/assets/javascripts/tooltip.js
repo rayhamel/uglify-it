@@ -36,6 +36,38 @@ $(".uglifybgcolor").on("click.bgColor", function () {
     return false;
 });
 
+$(".uglifyblinkselect").on("click.blink", function () {
+    $(uglifySelectEvent.target).css("-webkit-animation", "blink 500ms steps(2, start) infinite");
+    $(uglifySelectEvent.target).css("-ms-animation", "blink 500ms steps(2, start) infinite");
+    $(uglifySelectEvent.target).css("animation", "blink 500ms steps(2, start) infinite");
+});
+
+$(".uglifybounceselect").on("click.bounce", function () {
+    $(uglifySelectEvent.target).css("-webkit-animation", "bounce 1s infinite");
+    $(uglifySelectEvent.target).css("-ms-animation", "bounce 1s infinite");
+    $(uglifySelectEvent.target).css("animation", "bounce 1s infinite");
+    return false;
+});
+
+$(".uglifymarquee").on("click.marquee", function () {
+    $(uglifySelectEvent.target).wrap("<marquee></marquee>");
+    return false;
+});
+
+$(".uglifyscroll").on("click.scroll", function () {
+    $(uglifySelectEvent.target).wrap('<marquee direction="up"></marquee>');
+    return false;
+});
+
+$("div.uglifycarousel img").on("click.placeGif", function () {
+    var gif = $(this).clone();
+    gif.toggleClass("uglifyplacedgif");
+    gif.css("left", uglifySelectEvent.pageX - $(this).width());
+    gif.css("top", uglifySelectEvent.pageY - $(this).height());
+    $("body").append(gif);
+    return false;
+});
+
 $(".uglifyforward").on("click.carouselForward", function () {
     var image = $("div.uglifycarousel img:visible");
     image.hide();
@@ -44,6 +76,22 @@ $(".uglifyforward").on("click.carouselForward", function () {
     } else {
         image.next().show();
     }
+    return false;
+});
+
+$(".uglifyback").on("click.carouselBack", function () {
+    var image = $("div.uglifycarousel img:visible");
+    image.hide();
+    if (image.is(".activex")) {
+        $(".windows").show();
+    } else {
+        image.prev().show();
+    }
+    return false;
+});
+
+$(".uglifyclosecarousel").on("click.closeCarousel", function () {
+    $(".uglifycarousel").hide();
     return false;
 });
 
@@ -76,12 +124,19 @@ $(".uglifybackgrounds").on("click.clickBackgrounds", function (e) {
 $(".uglifygifs").on("click.clickGifs", function (e) {
     $(".uglifytool").hide();
     $(".uglifycarousel").show();
+    $(".uglifytooltip").animate({height: "40px"}, 'fast');
+    return false;
+});
+
+$(".uglifyanimations").on("click.clickAnimations", function (e) {
+    hideTools();
+    $(".uglifyanimationscontainer").show();
     return false;
 });
 
 $(".uglifyfonts").on("click.clickFonts", function (e) {
     hideTools();
-    $(".uglifyfonts").css("display", "inline-block");
+    $(".uglifyfontscontainer").css("display", "inline-block");
     return false;
 });
 
@@ -106,5 +161,5 @@ function showTooltip () {
 
 function hideTools () {
     $(".uglifytool").hide();
-    $(".uglifycarousel").show();
+    $(".uglifytooltip").animate({height: "200px"}, 'fast');
 }

@@ -11,7 +11,7 @@
     <input type="button" class="uglifytoolbar uglifybackgrounds" value="Backgrounds">
     <input type="button" class="uglifytoolbar uglifygifs" value="GIFs">
 
-    <div class="uglifytool uglifyfonts">
+    <div class="uglifytool uglifyfontscontainer">
       <input type="button" class="uglifyfontselect uglifycomicsans" value="Comic Sans">
       <input type="button" class="uglifyfontselect uglifymonotypecorsiva" value="Corsiva">
       <input type="button" class="uglifyfontselect uglifycouriernew" value="Courier">
@@ -56,6 +56,21 @@
         <input type="button" class="uglifybgcolor uglifycolor uglifyaqua">
         <input type="button" class="uglifybgcolor uglifycolor uglifyfuchsia">
         <input type="button" class="uglifybgcolor uglifycolor uglifylime">
+      </div>
+    </div>
+
+    <div class="uglifytool uglifyanimationscontainer">
+      <div class="uglifyanimationdemonstrations">
+        <input type="button" class="uglifyblink uglifyblinkselect" value="blink">
+        <input type="button" class="uglifybounce uglifybounceselect" value="bounce">
+        <marquee><input type="button" class="uglifymarquee" value="marquee"></marquee>
+        <marquee direction="up"><input type="button" class="uglifyscroll" value="scroll"></marquee>
+      </div>
+      <div class="uglifyanimationtargets">
+        <input type="button" class="uglifyblinkselect" value="(click)">
+        <input type="button" class="uglifybounceselect" value="(click)">
+        <input type="button" class="uglifymarquee" value="(click)">
+        <input type="button" class="uglifyscroll" value="(click)">
       </div>
     </div>
   </div>
@@ -111,6 +126,7 @@
     <%= image_tag 'win95', class: 'windows' %><!-- 24  -->
   </div>
   <a href="" class="uglifycarousel uglifyforward">&#10157;</a>
+  <a href="" class="uglifycarousel uglifyclosecarousel">&times;</a>
 
   <style type="text/css">
     body {
@@ -127,7 +143,6 @@
       top: 0;
       left: 0;
       visibility: none;
-      z-index: 0;
     }
 
     div.uglifytooltip {
@@ -140,6 +155,7 @@
       font-family: Helvetica, Arial, sans-serif;
       font-size: 24px;
       font-weight: bold;
+      text-align: left;
       background: #66ccff;
       border: 4px solid #66ccff;
       border-radius: 4px;
@@ -147,6 +163,7 @@
       opacity: 0.92;
       filter: alpha(opacity=92);
       cursor: auto;
+      z-index: 500001;
     }
 
     div.uglifytooltip:after {
@@ -164,8 +181,8 @@
     div.uglifytooltip .uglifydismissbutton {
       display: inline-block;
       float: right;
-      width: 22px;
-      height: 22px;
+      width: 22px !important;
+      height: 22px !important;
       line-height: 0px;
       padding: 0px;
       font-weight: bold;
@@ -184,12 +201,12 @@
     div.uglifytooltip .uglifyminbutton {
       margin-right: 2px;
       padding-top: 10px;
-      font-size: 35px;
+      font-size: 35px !important;
     }
 
     div.uglifytooltip .uglifyclosebutton {
       padding-bottom: 6px;
-      font-size: 40px;
+      font-size: 40px !important;
     }
 
     div.uglifytooltip .setmax {
@@ -197,6 +214,7 @@
     }
 
     div.uglifytooltip .uglifytoolbar {
+      display: inline-block !important;
       padding: 0px;
       font-size: 18px;
       font-weight: bold;
@@ -215,8 +233,9 @@
       display: none;
     }
 
-    div.uglifytooltip .uglifyfonts {
+    div.uglifytooltip .uglifyfontscontainer {
       display: inline-block;
+      float: left;
     }
 
     div.uglifytooltip .uglifycolorcontainer {
@@ -235,7 +254,7 @@
 
     div.uglifytooltip .uglifyfontselect {
       display: block;
-      float: bottom;
+      font-size: 24px;
       padding: 0px;
       background: none;
       border: none;
@@ -336,46 +355,46 @@
     }
 
     div.uglifybgcontainer .uglifystars {
-      background-image: url(<%= asset_path 'stars.gif' %>);
+      background-image: url(<%= asset_path 'stars' %>);
     }
 
     div.uglifybgcontainer .uglifyflag {
-      background-image: url(<%= asset_path 'flag.gif' %>);
+      background-image: url(<%= asset_path 'flag' %>);
       background-position: center;
     }
 
     div.uglifybgcontainer .uglifyflames {
-      background-image: url(<%= asset_path 'flames.gif' %>);
+      background-image: url(<%= asset_path 'flames' %>);
       background-position: right, bottom;
     }
 
     div.uglifybgcontainer .uglifymario {
-      background-image: url(<%= asset_path 'mario.gif' %>);
+      background-image: url(<%= asset_path 'mario' %>);
       background-position: center;
     }
 
     div.uglifybgcontainer .uglifyweed {
-      background-image: url(<%= asset_path 'weed.gif' %>);
+      background-image: url(<%= asset_path 'weed' %>);
       background-position: 15%, 10%;
     }
 
     div.uglifybgcontainer .uglifylasers {
-      background-image: url(<%= asset_path 'lasers.gif' %>);
+      background-image: url(<%= asset_path 'lasers' %>);
       background-position: 40%, 50%;
     }
 
     div.uglifybgcontainer .uglifyisometric {
-      background-image: url(<%= asset_path 'isometric.gif' %>);
+      background-image: url(<%= asset_path 'isometric' %>);
       background-position: 100%, 40%;
     }
 
     div.uglifybgcontainer .uglifynebula {
-      background-image: url(<%= asset_path 'nebula.gif' %>);
+      background-image: url(<%= asset_path 'nebula' %>);
       background-position: center;
     }
 
     div.uglifybgcontainer .uglifysilk {
-      background-image: url(<%= asset_path 'silk.gif' %>);
+      background-image: url(<%= asset_path 'silk' %>);
     }
 
     .uglifycarousel {
@@ -383,17 +402,19 @@
     }
 
     div.uglifycarousel {
-      display: none;
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      -webkit-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      position: absolute !important;
+      left: 50% !important;
+      top: 50% !important;
+      -webkit-transform: translate(-50%, -50%) !important;
+          -ms-transform: translate(-50%, -50%) !important;
+              transform: translate(-50%, -50%) !important;
     }
 
     div.uglifycarousel img {
+      position: relative;
       display: none;
+      cursor: pointer !important;
+      z-index: 500002 !important;
     }
 
     div.uglifycarousel .uglifydisplayimg {
@@ -401,24 +422,142 @@
     }
 
     a.uglifycarousel {
-      position: fixed;
-      top: 50%;
-      font-size: 250px;
-      opacity: 0.60;
-      filter: alpha(opacity=60);
+      position: absolute !important;
+      font-size: 250px !important;
+      opacity: 0.60 !important;
+      filter: alpha(opacity=60) !important;
+      z-index: 500002 !important;
     }
 
     a.uglifyback {
-      left: 10%;
-      -webkit-transform: translate(-50%, -50%) rotateY(180deg);
-              transform: translate(-50%, -50%) rotateY(180deg);
+      top: 50% !important;
+      left: 10% !important;
+      -webkit-transform: translate(-50%, -50%) rotateY(180deg) !important;
+              transform: translate(-50%, -50%) rotateY(180deg) !important;
     }
 
     a.uglifyforward {
-      left: 90%;
-      -webkit-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      top: 50% !important;
+      left: 90% !important;
+      -webkit-transform: translate(-50%, -50%) !important;
+          -ms-transform: translate(-50%, -50%) !important;
+              transform: translate(-50%, -50%) !important;
+    }
+
+    a.uglifyclosecarousel {
+      top: 15% !important;
+      left: 90% !important;
+      font-weight: bold !important;
+      -webkit-transform: translate(-50%, -50%) !important;
+          -ms-transform: translate(-50%, -50%) !important;
+              transform: translate(-50%, -50%) !important;
+    }
+
+    img.uglifyplacedgif {
+      position: absolute !important;
+      z-index: 500000 !important;
+    }
+
+    div.uglifyanimationscontainer input {
+      display: inline !important;
+      background: none !important;
+      border: none !important;
+      font-size: 24px !important;
+      font-weight: bold !important;
+      opacity: 0.60 !important;
+      filter: alpha(opacity=60) !important;
+    }
+
+    div.uglifyanimationscontainer input:hover {
+      opacity: 0.80 !important;
+      filter: alpha(opacity=80) !important;
+    }
+
+    div.uglifyanimationscontainer .uglifybounce {
+      -webkit-animation: bounce 1s infinite;
+      -ms-animation: bounce 1s infinite;
+      animation: bounce 1s infinite;
+      margin-top: 30px;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform:translateY(0px);
+      }
+      50% {
+        transform:translateY(-30px);
+      }
+      100% {
+        transform:translateY(0px);
+      }
+    }
+
+    @-webkit-keyframes bounce {
+      0% {
+        -webkit-transform:translateY(0px);
+      }
+      50% {
+        -webkit-transform:translateY(-30px);
+      }
+      100% {
+        -webkit-transform:translateY(0px);
+      }
+    }
+
+    @-ms-keyframes bounce {
+      0% {
+        -ms-transform:translateY(0px);
+      }
+      50% {
+        -ms-transform:translateY(-30px);
+      }
+      100% {
+        -ms-transform:translateY(0px);
+      }
+    }
+
+    div.uglifyanimationscontainer .uglifyblink {
+      animation: blink 500ms steps(2, start) infinite;
+      -webkit-animation: blink 500ms steps(2, start) infinite;
+      -ms-animation: blink 500ms steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    @-webkit-keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    @-ms-keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    div.uglifyanimationscontainer .uglifyanimationdemonstrations {
+      display: inline-block;
+      width: 120px;
+    }
+
+    div.uglifyanimationscontainer .uglifyanimationtargets {
+      position: relative;
+      top: -10px;
+      display: inline-block;
+      width: 50px;
+    }
+
+    div.uglifyanimationtargets input {
+      margin-top: 5px;
+    }
+
+    div.uglifyanimationtargets .uglifybounceselect {
+      margin-top: 25px;
     }
   </style>
   <%= javascript_include_tag 'application' %>
