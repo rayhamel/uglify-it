@@ -14,5 +14,4 @@
 
 # Ignore fonts.
 /app/assets/fonts
-
-url_regex.rb
+/app/assets/javascripts/typekit.js

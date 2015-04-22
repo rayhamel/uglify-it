@@ -1,9 +1,16 @@
+<div id="js-warning-container">
+  Generated pages will be much "nicer"-looking if you sign in or sign up first! <a href="" id="js-warning-link">Learn why.</a>
+  <div id="js-warning-text">
+    Many modern websites, including this one, use JavaScript to load many visual components of the page. However, cybercriminals have been known to create malicious scripts that can steal personal information or do other illegal things. That's why we don't allow JavaScript in content submitted by anonymous users.
+  </div>
+</div>
+
 <%= form_for @webpage do |t| %>
   <%= t.label :title, 'Title (optional)' %>
   <%= t.text_field :title %>
 
-  <%= t.label :url %>
+  <%= t.label :url, 'URL' %>
   <%= t.text_field :url %>
 
-  <%= t.submit "Submit", class: "button radius" %>
+  <%= t.submit 'Submit', class: 'button radius' %>
 <% end %>

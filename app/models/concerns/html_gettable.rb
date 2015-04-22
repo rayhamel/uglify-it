@@ -3,32 +3,44 @@ module HTMLGettable
 
   def save_html
     url = Domainatrix.parse(self.url).url
-    doc = strip_html(HTTParty.get(url).body)
+    doc = Nokogiri::HTML(HTTParty.get(url).body)
+    counter = 0
+    doc.traverse { |node| node['uglifierID'] = counter.to_s; counter += 1 }
     fix_links(doc, URI.parse(url))
-    self.html = doc.to_s.force_encoding('iso8859-1').encode('utf-8')
+    self.html = doc.to_s.gsub!(%r{</body>.*?</html>}im, '').encode('utf-8')
   end
 
   private
 
-  def strip_html(doc)
+  def strip_js(doc)
+    Nokogiri::HTML(Loofah.document(doc).scrub!(:prune).to_s)
+  end
+
+  def strip_css(doc)
     doc.gsub!(
       /<link.*?>|<style.*?<\/style>|bgcolor=["'].*?["']|color=["'].*?["']|
       style=["'].*?["']/imx, ''
     )
-    Nokogiri::HTML(Loofah.document(doc).scrub!(:prune).to_s)
   end
 
   def fix_links(doc, remote_url)
-    tags = { 'img' => 'src', 'a' => 'href' }
+    tags = {
+      'a' => 'href', 'form' => 'action', 'iframe' => 'src', 'img' => 'src',
+      'link' => 'href', 'script' => 'src', 'source' => 'src'
+    }
     doc.search(tags.keys.join(',')).each do |node|
-      url_param = tags[node.name]
-      link = node[url_param]
-      next if link.nil? || link.empty?
-      uri = URI.parse(link)
-      next if uri.host
-      uri.scheme = remote_url.scheme
-      uri.host = remote_url.host
-      node[url_param] = uri.to_s
+      begin
+        url_param = tags[node.name]
+        link = node[url_param]
+        next if link.nil? || link.empty?
+        uri = URI.parse(link)
+        next if uri.host
+        uri.scheme = remote_url.scheme
+        uri.host = remote_url.host
+        node[url_param] = uri.to_s
+      rescue URI::InvalidURIError
+        next
+      end
     end
   end
 end

@@ -1,8 +1,7 @@
 class WebpagesController < ApplicationController
-  before_action :authenticate_user!, only: %i(create)
-
   def show
     @webpage = Webpage.friendly.find(params[:id])
+    render layout: 'uglifier'
   end
 
   def new
