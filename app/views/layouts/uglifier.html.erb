@@ -58,11 +58,65 @@
         <input type="button" class="uglifybgcolor uglifycolor uglifylime">
       </div>
     </div>
-    <div class="uglifytool uglifygifs">
-    </div>
   </div>
 
+  <a href="" class="uglifycarousel uglifyback">&#10157;</a>
+  <div class="uglifycarousel">
+    <%= image_tag 'activex', class: 'activex uglifydisplayimg' %><!-- 85  -->
+    <%= image_tag 'aol' %><!-- 181 -->
+    <%= image_tag 'aolinstantmessenger' %><!-- 126 -->
+    <%= image_tag 'bestviewed' %><!-- 31  -->
+    <%= image_tag 'billclinton' %><!-- 96  -->
+    <%= image_tag 'billgates' %><!-- 80  -->
+    <%= image_tag 'cartoonnetwork' %><!-- 60  -->
+    <%= image_tag 'coldfusion' %><!-- 66  -->
+    <%= image_tag 'cookies' %><!-- 54  -->
+    <%= image_tag 'counter1' %><!-- 24  -->
+    <%= image_tag 'counter2' %><!-- 25  -->
+    <%= image_tag 'counter3' %><!-- 17  -->
+    <%= image_tag 'crazyfrog' %><!-- 118 -->
+    <%= image_tag 'doom' %><!-- 320 -->
+    <%= image_tag 'friends' %><!-- 276 -->
+    <%= image_tag 'gallery' %><!-- 87 -->
+    <%= image_tag 'goldeneye' %><!-- 168 -->
+    <%= image_tag 'homepage' %><!-- 86  -->
+    <%= image_tag 'ie' %><!-- 40  -->
+    <%= image_tag 'iewide' %><!-- 31  -->
+    <%= image_tag 'korn' %><!-- 187 -->
+    <%= image_tag 'macintosh' %><!-- 31 -->
+    <%= image_tag 'metalgearsolid' %><!-- 83  -->
+    <%= image_tag 'nader' %><!-- 153 -->
+    <%= image_tag 'napster' %><!-- 79  -->
+    <%= image_tag 'netscape' %><!-- 40  -->
+    <%= image_tag 'netscape2' %><!-- 60  -->
+    <%= image_tag 'netscapewide' %><!-- 31  -->
+    <%= image_tag 'nickelodeon' %><!-- 78  -->
+    <%= image_tag 'nintendo64' %><!-- 169 -->
+    <%= image_tag 'nsync' %><!-- 245 -->
+    <%= image_tag 'parentaladvisory' %><!-- 78  -->
+    <%= image_tag 'playstation' %><!-- 122 -->
+    <%= image_tag 'pokeball' %><!-- 100 -->
+    <%= image_tag 'pokemon' %><!-- 95  -->
+    <%= image_tag 'segasaturn' %><!-- 151 -->
+    <%= image_tag 'shockwave' %><!-- 38  -->
+    <%= image_tag 'slipknot' %><!-- 111 -->
+    <%= image_tag 'spacejam' %><!-- 164 -->
+    <%= image_tag 'starcraft' %><!-- 273 -->
+    <%= image_tag 'underconstruction1' %><!-- 76  -->
+    <%= image_tag 'underconstruction2' %><!-- 191 -->
+    <%= image_tag 'underconstruction3' %><!-- 80  -->
+    <%= image_tag 'underconstruction4' %><!-- 25  -->
+    <%= image_tag 'xfiles' %><!-- 350 -->
+    <%= image_tag 'welcome' %><!-- 103 -->
+    <%= image_tag 'win95', class: 'windows' %><!-- 24  -->
+  </div>
+  <a href="" class="uglifycarousel uglifyforward">&#10157;</a>
+
   <style type="text/css">
+    body {
+      cursor: cell;
+    }
+
     div.uglifyoverlay {
       display: none;
       position: fixed;
@@ -92,6 +146,7 @@
       box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
       opacity: 0.92;
       filter: alpha(opacity=92);
+      cursor: auto;
     }
 
     div.uglifytooltip:after {
@@ -321,6 +376,49 @@
 
     div.uglifybgcontainer .uglifysilk {
       background-image: url(<%= asset_path 'silk.gif' %>);
+    }
+
+    .uglifycarousel {
+      display: none;
+    }
+
+    div.uglifycarousel {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+
+    div.uglifycarousel img {
+      display: none;
+    }
+
+    div.uglifycarousel .uglifydisplayimg {
+      display: block;
+    }
+
+    a.uglifycarousel {
+      position: fixed;
+      top: 50%;
+      font-size: 250px;
+      opacity: 0.60;
+      filter: alpha(opacity=60);
+    }
+
+    a.uglifyback {
+      left: 10%;
+      -webkit-transform: translate(-50%, -50%) rotateY(180deg);
+              transform: translate(-50%, -50%) rotateY(180deg);
+    }
+
+    a.uglifyforward {
+      left: 90%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
     }
   </style>
   <%= javascript_include_tag 'application' %>

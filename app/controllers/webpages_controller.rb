@@ -1,7 +1,6 @@
 class WebpagesController < ApplicationController
   def show
     @webpage = Webpage.friendly.find(params[:id])
-    # render layout: false
     render layout: 'uglifier'
   end
 

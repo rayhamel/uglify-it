@@ -8,157 +8,43 @@ $("body").on("click.placeTooltip", function (e) {
     return false;
 });
 
-$(".uglifycomicsans").on("click.comicSans", function () {
+$(".uglifyfontselect").on("click.fontSelect", function () {
     $(uglifySelectEvent.target).css(
-        "font-family", '"Comic Sans MS", "Comic Sans", Chalkboard, cursive'
+        "font-family", $(this).css("font-family")
     );
     return false;
 });
 
-$(".uglifycouriernew").on("click.courierNew", function () {
+$(".uglifyfontcolor").on("click.fontColor", function () {
     $(uglifySelectEvent.target).css(
-        "font-family", '"Courier New", Courier, "Liberation Mono", monospace'
+        "color", $(this).css("background-color")
     );
     return false;
 });
 
-$(".uglifyimpact").on("click.impact", function () {
+$(".uglifybgselect").on("click.bgSelect", function () {
     $(uglifySelectEvent.target).css(
-        "font-family", 'Impact, Haettenschweiler, Compacta, "Arial Black", ' +
-        'sans-serif'
+        "background-image", $(this).css("background-image")
     );
     return false;
 });
 
-$(".uglifymonotypecorsiva").on("click.monotypeCorsiva", function () {
+$(".uglifybgcolor").on("click.bgColor", function () {
     $(uglifySelectEvent.target).css(
-        "font-family", '"Monotype Corsiva", "Apple Chancery", ' +
-        '"Zapf Chancery", Zapf-Chancery, "URW Chancery L", cursive'
+        "background", $(this).css("background-color")
     );
     return false;
 });
 
-$(".uglifypapyrus").on("click.papyrus", function () {
-    $(uglifySelectEvent.target).css(
-        "font-family", 'Papyrus, Herculanum, Lithos, Skia, fantasy'
-    );
+$(".uglifyforward").on("click.carouselForward", function () {
+    var image = $("div.uglifycarousel img:visible");
+    image.hide();
+    if (image.is(".windows")) {
+        $(".activex").show();
+    } else {
+        image.next().show();
+    }
     return false;
-});
-
-$(".uglifyfontcolor.uglifyred").on("click.fontRed", function() {
-    $(uglifySelectEvent.target).css("color", "red")
-});
-
-$(".uglifyfontcolor.uglifyorange").on("click.fontOrange", function() {
-    $(uglifySelectEvent.target).css("color", "#ff6600")
-});
-
-$(".uglifyfontcolor.uglifyyellow").on("click.fontYellow", function() {
-    $(uglifySelectEvent.target).css("color", "yellow")
-});
-
-$(".uglifyfontcolor.uglifygreen").on("click.fontGreen", function() {
-    $(uglifySelectEvent.target).css("color", "green")
-});
-
-$(".uglifyfontcolor.uglifyblue").on("click.fontBlue", function() {
-    $(uglifySelectEvent.target).css("color", "blue")
-});
-
-$(".uglifyfontcolor.uglifypurple").on("click.fontPurple", function() {
-    $(uglifySelectEvent.target).css("color", "purple")
-});
-
-$(".uglifyfontcolor.uglifywhite").on("click.fontWhite", function() {
-    $(uglifySelectEvent.target).css("color", "white")
-});
-
-$(".uglifyfontcolor.uglifyaqua").on("click.fontAqua", function() {
-    $(uglifySelectEvent.target).css("color", "aqua")
-});
-
-$(".uglifyfontcolor.uglifyfuchsia").on("click.fontFuchsia", function() {
-    $(uglifySelectEvent.target).css("color", "fuchsia")
-});
-
-$(".uglifyfontcolor.uglifylime").on("click.fontLime", function() {
-    $(uglifySelectEvent.target).css("color", "lime")
-});
-
-$(".uglifystars").on("click.stars", function() {
-    $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'stars.gif' %>)")
-});
-
-$(".uglifyflag").on("click.flag", function() {
-    $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'flag.gif' %>)")
-});
-
-$(".uglifyflames").on("click.flames", function() {
-    $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'flames.gif' %>)")
-});
-
-$(".uglifymario").on("click.mario", function() {
-    $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'mario.gif' %>)")
-});
-
-$(".uglifyweed").on("click.weed", function() {
-    $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'weed.gif' %>)")
-});
-
-$(".uglifylasers").on("click.lasers", function() {
-    $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'lasers.gif' %>)")
-});
-
-$(".uglifyisometric").on("click.isometric", function() {
-    $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'isometric.gif' %>)")
-});
-
-$(".uglifynebula").on("click.nebula", function() {
-    $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'nebula.gif' %>)")
-});
-
-$(".uglifysilk").on("click.silk", function() {
-    $(uglifySelectEvent.target).css("background-image", "url(<%= asset_path 'silk.gif' %>)")
-});
-
-$(".uglifybgcolor.uglifyred").on("click.bgRed", function() {
-    $(uglifySelectEvent.target).css("background", "red")
-});
-
-$(".uglifybgcolor.uglifyorange").on("click.bgOrange", function() {
-    $(uglifySelectEvent.target).css("background", "#ff6600")
-});
-
-$(".uglifybgcolor.uglifyyellow").on("click.bgYellow", function() {
-    $(uglifySelectEvent.target).css("background", "yellow")
-});
-
-$(".uglifybgcolor.uglifygreen").on("click.bgGreen", function() {
-    $(uglifySelectEvent.target).css("background", "green")
-});
-
-$(".uglifybgcolor.uglifyblue").on("click.bgBlue", function() {
-    $(uglifySelectEvent.target).css("background", "blue")
-});
-
-$(".uglifybgcolor.uglifypurple").on("click.bgPurple", function() {
-    $(uglifySelectEvent.target).css("background", "purple")
-});
-
-$(".uglifybgcolor.uglifywhite").on("click.bgWhite", function() {
-    $(uglifySelectEvent.target).css("background", "white")
-});
-
-$(".uglifybgcolor.uglifyaqua").on("click.bgAqua", function() {
-    $(uglifySelectEvent.target).css("background", "aqua")
-});
-
-$(".uglifybgcolor.uglifyfuchsia").on("click.bgFuchsia", function() {
-    $(uglifySelectEvent.target).css("background", "fuchsia")
-});
-
-$(".uglifybgcolor.uglifylime").on("click.bgLime", function() {
-    $(uglifySelectEvent.target).css("background", "lime")
 });
 
 $(".uglifyminbutton.setmin").on("click.minTooltip", function (e) {
@@ -182,20 +68,19 @@ $(".uglifyclosebutton").on("click.closeTooltip", function (e) {
 });
 
 $(".uglifybackgrounds").on("click.clickBackgrounds", function (e) {
-    shrinkTooltip();
+    hideTools();
     $(".uglifybgs").css("display", "inline-block");
     return false;
 });
 
 $(".uglifygifs").on("click.clickGifs", function (e) {
     $(".uglifytool").hide();
-    $(".uglifytooltip").animate({ width: '400px', height: '400px' }, 'fast');
-    $(".uglifygifs").css("display", "inline-block");
+    $(".uglifycarousel").show();
     return false;
 });
 
 $(".uglifyfonts").on("click.clickFonts", function (e) {
-    shrinkTooltip();
+    hideTools();
     $(".uglifyfonts").css("display", "inline-block");
     return false;
 });
@@ -219,7 +104,7 @@ function showTooltip () {
     $(".uglifytooltip").css("filter", "alpha(opacity=92)");
 }
 
-function shrinkTooltip () {
+function hideTools () {
     $(".uglifytool").hide();
-    $(".uglifytooltip").animate({ width: '200px', height: '200px' }, 'fast');
+    $(".uglifycarousel").show();
 }

@@ -13,5 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require js_warning
-
-$(function(){ $(document).foundation(); });
