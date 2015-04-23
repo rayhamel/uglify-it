@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'webpages#new'
-  resources :webpages, only: %i(show new create)
+  resources :webpages, only: %i(index show new create)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

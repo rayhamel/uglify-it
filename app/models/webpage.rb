@@ -6,7 +6,6 @@ class Webpage < ActiveRecord::Base
   validates :url, presence: true, length: { in: 4..511 }
   friendly_id :slug_candidates, use: :slugged
 
-  belongs_to :user
   before_save :set_uuid, :save_html
 
   def set_uuid
