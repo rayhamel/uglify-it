@@ -1,4 +1,6 @@
   <%= yield %>
+  <%= link_to 'Page not loading correctly?', "http://uglifyit.herokuapp.com#{webpage_path(@webpage)}", class: 'uglifyhelplink' %>
+
   <div class="uglifyoverlay"></div>
 
   <div class="uglifytooltip">
@@ -131,6 +133,17 @@
   <style type="text/css">
     body {
       cursor: cell;
+    }
+
+    a.uglifyhelplink {
+      position: fixed;
+      top: 40px;
+      left: 40px;
+      color: black;
+      font-family: Helvetica, FreeSans, Arial, sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      z-index: 500001;
     }
 
     div.uglifyoverlay {
