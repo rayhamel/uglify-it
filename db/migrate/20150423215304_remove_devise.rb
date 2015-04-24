@@ -1,6 +1,5 @@
 class RemoveDevise < ActiveRecord::Migration
   def up
-    remove_foreign_key :webpages, :users
     remove_index :webpages, column: :user_id
     drop_table(:users)
   end
