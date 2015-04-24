@@ -1,6 +1,5 @@
 class RemoveDevise < ActiveRecord::Migration
   def up
-    remove_index :webpages, column: :user_id
     drop_table(:users)
   end
 
