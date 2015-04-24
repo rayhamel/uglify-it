@@ -9,6 +9,10 @@
         return false;
     });
 
+    $(".uglifyhelplink").on("click.help", function () {
+       window.location = this.href;
+    });
+
     $(".uglifyfontselect").on("click.fontSelect", function () {
         var node = uglifySelectEvent.target;
         var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
