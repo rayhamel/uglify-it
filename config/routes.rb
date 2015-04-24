@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'webpages#new'
-  resources :webpages, only: %i(index show new create)
+  resources :webpages, only: %i(index show new create) do
+    resources :gifs, only: :create
+    resources :marquees, only: :create
+    resources :styles, only: :create
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

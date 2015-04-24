@@ -2,10 +2,11 @@ module HTMLGettable
   extend ActiveSupport::Concern
 
   def save_html
+    return if self.html
     url = Domainatrix.parse(self.url).url
     doc = Nokogiri::HTML(HTTParty.get(url).body)
     counter = 0
-    doc.traverse { |node| node['uglifierID'] = counter.to_s; counter += 1 }
+    doc.traverse { |node| node['data-uglifier'] = counter.to_s; counter += 1 }
     fix_links(doc, URI.parse(url))
     self.html = doc.to_s.gsub!(%r{</body>.*?</html>}im, '').encode('utf-8')
   end

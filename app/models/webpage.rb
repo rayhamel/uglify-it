@@ -2,6 +2,7 @@ class Webpage < ActiveRecord::Base
   extend FriendlyId
   include HTTParty
   include HTMLGettable
+  include HTMLSavable
   validates :title, length: { in: 3..255 }, allow_blank: true
   validates :url, presence: true, length: { in: 4..511 }
   friendly_id :slug_candidates, use: :slugged
