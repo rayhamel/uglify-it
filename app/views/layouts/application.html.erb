@@ -10,6 +10,8 @@
   <div class="formcontainer">
     <h1>Uglify It!</h1>
 
+    <h3>beauty is in the eye of the beholder</h3>
+
     <%- flash.each do |key, value| -%>
       <div class="flash flash-<%= key %>">
         <%= value %>
@@ -17,7 +19,15 @@
     <%- end -%>
 
     <%= yield %>
+
+    <p>Note: Many webpages are just too modern to be uglified!</p>
   </div>
+
+  <style>
+    h3 {
+      font-family: <%= ApplicationHelper::HOVERS.sample %>
+    }
+  </style>
 
   <%= yield :extra_footer %>
 </body>

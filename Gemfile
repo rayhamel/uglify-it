@@ -33,7 +33,9 @@ gem 'friendly_id'
 gem 'httparty'
 gem 'loofah'
 gem 'nokogiri'
+gem 'nokogiri-styles'
 gem 'puma'
+gem 'redis'
 
 group :production do
   gem 'rails_12factor'

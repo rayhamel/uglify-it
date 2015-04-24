@@ -1,20 +1,27 @@
 body {
   font-family: Helvetica, Arial, FreeSans, sans-serif;
   font-size: 16px;
+  color: yellow;
   background-color: purple;
 }
 
-form {
-  color: yellow;
-  font-size: 15px;
-  font-size: 1.3em;
+h1 {
+  font-size: 5.3em;
+  margin-bottom: 0em;
 }
 
-h1 {
-  font-size: 100px;
-  font-size: 9em;
-  color: yellow;
-  margin-bottom: 0.3em;
+h3 {
+  visibility: hidden;
+  height: 1.4em;
+  margin: 0.3em;
+}
+
+p {
+  font-size: 0.7em;
+}
+
+h1:hover ~ h3 {
+  visibility: visible;
 }
 
 .formcontainer {
@@ -22,34 +29,26 @@ h1 {
   width: 80%;
   left: 10%;
   top: 0%;
+  font-size: 1.7em;
 }
 
 .flash {
-  color: yellow;
-  font-family: Helvetica, FreeSans, Arial, sans-serif;
-  font-size: 15px;
-  font-size: 1.3em;
+  margin-bottom: 0.3em;
 }
 
 .button {
   display: none;
-  font-family: Helvetica, FreeSans, Arial, sans-serif;
   background: none;
   border: 2px solid yellow;
-  color: yellow;
-  font-family: Helvetica, FreeSans, Arial, sans-serif;
-  font-size: 15px;
-  font-size: 1.3em;
 }
 
 .field {
   color: yellow;
-  font-family: Helvetica, FreeSans, Arial, sans-serif;
-  font-size: 15px;
-  font-size: 1.3em;
   background: none;
   border: 2px solid yellow;
   outline: none;
+  font-size: 1em;
+  margin-bottom: 0.3em;
 }
 
 @media(max-width: 600px) {
@@ -59,5 +58,10 @@ h1 {
 
   label {
     display: block;
+  }
+
+  h3 {
+    font-size: 0.7em;
+    margin-bottom: 1em;
   }
 }
