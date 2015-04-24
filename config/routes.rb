@@ -4,6 +4,5 @@ Rails.application.routes.draw do
     resources :gifs, only: :create
     resources :marquees, only: :create
     resources :styles, only: :create
-    resources :saves, only: :create
   end
 end

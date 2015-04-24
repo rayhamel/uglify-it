@@ -5,7 +5,7 @@ class WebpagesController < ApplicationController
   end
 
   def show
-    @webpage = Webpage.friendly.find(params[:id])
+    @webpage = Webpage.friendly.find(params[:id]).save_to_database
     render layout: 'uglifier'
   end
 
