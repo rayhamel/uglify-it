@@ -11,6 +11,7 @@
 
     $(".uglifyhelplink").on("click.help", function () {
        window.location = this.href;
+       $(this).hide();
     });
 
     $(".uglifyfontselect").on("click.fontSelect", function () {
