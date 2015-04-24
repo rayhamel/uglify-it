@@ -4,37 +4,30 @@
   <title>Uglify It!</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <div class="formcontainer">
+    <h1>Uglify It!</h1>
+    <h3>beauty is in the eye of the beholder</h3>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">Uglify It!</a></h1>
-      </li>
-    </ul>
+    <%- flash.each do |key, value| -%>
+      <div class="flash flash-<%= key %>">
+        <%= value %>
+      </div>
+    <%- end -%>
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
-      </ul>
-    </section>
-  </nav>
+    <%= yield %>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
+    <p>Note: Many webpages are just too modern to be uglified!</p>
+  </div>
 
-  <%= yield %>
+  <style>
+    h3 {
+      font-family: <%= ApplicationHelper::HOVERS.sample %>
+    }
+  </style>
 
-  <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
 </body>
 </html>

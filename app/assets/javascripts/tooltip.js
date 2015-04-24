@@ -9,62 +9,101 @@ $("body").on("click.placeTooltip", function (e) {
 });
 
 $(".uglifyfontselect").on("click.fontSelect", function () {
-    $(uglifySelectEvent.target).css(
-        "font-family", $(this).css("font-family")
-    );
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/styles";
+    var style = $(this).css("font-family");
+    $(node).css("font-family", style);
+    $.post(path, { entry: id + "font-family", value: style });
     return false;
 });
 
 $(".uglifyfontcolor").on("click.fontColor", function () {
-    $(uglifySelectEvent.target).css(
-        "color", $(this).css("background-color")
-    );
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/styles";
+    var style = $(this).css("background-color");
+    $(node).css("color", style);
+    $.post(path, { entry: id + "color", value: style });
     return false;
 });
 
 $(".uglifybgselect").on("click.bgSelect", function () {
-    $(uglifySelectEvent.target).css(
-        "background-image", $(this).css("background-image")
-    );
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/styles";
+    var style = $(this).css("background-image");
+    $(node).css("background-image", style);
+    $.post(path, { entry: id + "background", value: style });
     return false;
 });
 
 $(".uglifybgcolor").on("click.bgColor", function () {
-    $(uglifySelectEvent.target).css(
-        "background", $(this).css("background-color")
-    );
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/styles";
+    var style = $(this).css("background-color");
+    $(node).css("background", style);
+    $.post(path, { entry: id + "background", value: style });
     return false;
 });
 
 $(".uglifyblinkselect").on("click.blink", function () {
-    $(uglifySelectEvent.target).css("-webkit-animation", "blink 500ms steps(2, start) infinite");
-    $(uglifySelectEvent.target).css("-ms-animation", "blink 500ms steps(2, start) infinite");
-    $(uglifySelectEvent.target).css("animation", "blink 500ms steps(2, start) infinite");
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/styles";
+    var style = "blink 500ms steps(2, start) infinite"
+    $(node).css("-webkit-animation", style);
+    $(node).css("-ms-animation", style);
+    $(node).css("animation", style);
+    $.post(path, { entry: id + "-webkit-animation", value: style });
+    $.post(path, { entry: id + "-ms-animation", value: style });
+    $.post(path, { entry: id + "animation", value: style });
+    return false;
 });
 
 $(".uglifybounceselect").on("click.bounce", function () {
-    $(uglifySelectEvent.target).css("-webkit-animation", "bounce 1s infinite");
-    $(uglifySelectEvent.target).css("-ms-animation", "bounce 1s infinite");
-    $(uglifySelectEvent.target).css("animation", "bounce 1s infinite");
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/styles";
+    var style = "bounce 1s infinite"
+    $(node).css("-webkit-animation", style);
+    $(node).css("-ms-animation", style);
+    $(node).css("animation", style);
+    $.post(path, { entry: id + "-webkit-animation", value: style });
+    $.post(path, { entry: id + "-ms-animation", value: style });
+    $.post(path, { entry: id + "animation", value: style });
     return false;
 });
 
 $(".uglifymarquee").on("click.marquee", function () {
-    $(uglifySelectEvent.target).wrap("<marquee></marquee>");
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/marquees";
+    var tags = "<marquee></marquee>";
+    $(node).wrap(tags);
+    $.post(path, { entry: id, value: tags });
     return false;
 });
 
 $(".uglifyscroll").on("click.scroll", function () {
-    $(uglifySelectEvent.target).wrap('<marquee direction="up"></marquee>');
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/marquees";
+    var tags = '<marquee direction="up"></marquee>';
+    $(node).wrap(tags);
+    $.post(path, { entry: id, value: tags });
     return false;
 });
 
 $("div.uglifycarousel img").on("click.placeGif", function () {
     var gif = $(this).clone();
+    var path = window.location.pathname + "/gifs";
     gif.toggleClass("uglifyplacedgif");
     gif.css("left", uglifySelectEvent.pageX - $(this).width());
     gif.css("top", uglifySelectEvent.pageY - $(this).height());
     $("body").append(gif);
+    $.post(path, { entry: gif[0].outerHTML });
     return false;
 });
 

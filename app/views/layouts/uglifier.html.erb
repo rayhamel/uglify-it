@@ -152,7 +152,7 @@
       height: 200px;
       line-height: 20px;
       padding: 0px;
-      font-family: Helvetica, Arial, sans-serif;
+      font-family: Helvetica, FreeSans, Arial, sans-serif;
       font-size: 24px;
       font-weight: bold;
       text-align: left;
@@ -399,10 +399,11 @@
 
     .uglifycarousel {
       display: none;
+      z-index: 500002 !important;
     }
 
     div.uglifycarousel {
-      position: absolute !important;
+      position: fixed !important;
       left: 50% !important;
       top: 50% !important;
       -webkit-transform: translate(-50%, -50%) !important;
@@ -414,7 +415,6 @@
       position: relative;
       display: none;
       cursor: pointer !important;
-      z-index: 500002 !important;
     }
 
     div.uglifycarousel .uglifydisplayimg {
@@ -423,11 +423,10 @@
 
     a.uglifycarousel {
       color: #000000 !important;
-      position: absolute !important;
+      position: fixed !important;
       font-size: 250px !important;
       opacity: 0.60 !important;
       filter: alpha(opacity=60) !important;
-      z-index: 500002 !important;
     }
 
     a.uglifyback {
@@ -562,7 +561,6 @@
     }
   </style>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'tooltip' %>
   <%= yield :extra_footer %>
 </body>
 </html>

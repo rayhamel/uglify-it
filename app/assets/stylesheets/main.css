@@ -1,0 +1,67 @@
+body {
+  font-family: Helvetica, Arial, FreeSans, sans-serif;
+  font-size: 16px;
+  color: yellow;
+  background-color: purple;
+}
+
+h1 {
+  font-size: 5.3em;
+  margin-bottom: 0em;
+}
+
+h3 {
+  visibility: hidden;
+  height: 1.4em;
+  margin: 0.3em;
+}
+
+p {
+  font-size: 0.7em;
+}
+
+h1:hover ~ h3 {
+  visibility: visible;
+}
+
+.formcontainer {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 0%;
+  font-size: 1.7em;
+}
+
+.flash {
+  margin-bottom: 0.3em;
+}
+
+.button {
+  display: none;
+  background: none;
+  border: 2px solid yellow;
+}
+
+.field {
+  color: yellow;
+  background: none;
+  border: 2px solid yellow;
+  outline: none;
+  font-size: 1em;
+  margin-bottom: 0.3em;
+}
+
+@media(max-width: 600px) {
+  body {
+    font-size: 10px;
+  }
+
+  label {
+    display: block;
+  }
+
+  h3 {
+    font-size: 0.7em;
+    margin-bottom: 1em;
+  }
+}
