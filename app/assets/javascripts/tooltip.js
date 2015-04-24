@@ -77,22 +77,33 @@ $(".uglifybounceselect").on("click.bounce", function () {
 });
 
 $(".uglifymarquee").on("click.marquee", function () {
-    $(uglifySelectEvent.target).wrap("<marquee></marquee>");
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/marquees";
+    var tags = "<marquee></marquee>";
+    $(node).wrap(tags);
+    $.post(path, { entry: id, value: tags });
     return false;
 });
 
 $(".uglifyscroll").on("click.scroll", function () {
-    $(uglifySelectEvent.target).wrap('<marquee direction="up"></marquee>');
+    var node = uglifySelectEvent.target;
+    var id = "//*[@data-uglifier='" + $(node).data("uglifier") + "'] ";
+    var path = window.location.pathname + "/marquees";
+    var tags = '<marquee direction="up"></marquee>';
+    $(node).wrap(tags);
+    $.post(path, { entry: id, value: tags });
     return false;
 });
 
 $("div.uglifycarousel img").on("click.placeGif", function () {
     var gif = $(this).clone();
+    var path = window.location.pathname + "/gifs";
     gif.toggleClass("uglifyplacedgif");
     gif.css("left", uglifySelectEvent.pageX - $(this).width());
     gif.css("top", uglifySelectEvent.pageY - $(this).height());
     $("body").append(gif);
-    alert($(this).html());
+    $.post(path, { entry: gif[0].outerHTML });
     return false;
 });
 

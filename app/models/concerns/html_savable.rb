@@ -4,31 +4,40 @@ module HTMLSavable
   def load_from_redis
     document = Nokogiri::HTML(self.html)
     doc_slug = self.slug
-    sorted_keys = sort_keys(REDIS.hkeys(doc_slug))
-    sorted_keys[:styles].each do |key|
-      node = document.xpath(key[/.*?\]/])[0]
-      style_node(node, key[/(.*?\]) (.*)/, 2], REDIS.hget(doc_slug, key))
-    end
-    document.to_s
+    style_doc(doc_slug, document)
+    add_gifs(doc_slug, document)
+    add_marquees(doc_slug, document)
+    self.html = document.to_s.encode('utf-8')
   end
 
   def save_to_database
-    self.html = load_from_redis
+    self.load_from_redis
     self.save
   end
 
   private
 
-  def sort_keys(keys)
-    sorted_keys = { gifs: [], marquees: [], styles: [] }
-    keys.each do |key|
-      if key.start_with?("<marquee")
-        sorted_keys[:marquees] << key
-      else
-        sorted_keys[:styles] << key
-      end
+  def style_doc(doc_slug, document)
+    REDIS.hkeys("#{doc_slug}_styles").each do |key|
+      node = document.at_xpath(key[/.*?\]/])
+      style_node(
+        node, key[/(.*?\]) (.*)/, 2], REDIS.hget("#{doc_slug}_styles", key)
+      )
     end
-    sorted_keys
+  end
+
+  def add_gifs(doc_slug, document)
+    body = document.at_xpath('//body')
+    REDIS.smembers("#{doc_slug}_gifs").each do |member|
+      body.add_child(member)
+    end
+  end
+
+  def add_marquees(doc_slug, document)
+    REDIS.hkeys("#{doc_slug}_marquees").each do |key|
+      node = document.xpath(key)
+      node.wrap(REDIS.hget("#{doc_slug}_marquees", key))
+    end
   end
 
   def style_node(node, attribute, ugly_style)

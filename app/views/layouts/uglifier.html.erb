@@ -128,6 +128,12 @@
   <a href="" class="uglifycarousel uglifyforward">&#10157;</a>
   <a href="" class="uglifycarousel uglifyclosecarousel">&times;</a>
 
+  <div class="uglifytopbar">
+    <input type="button" class="uglifysave" value="Save">
+    <input type="button" class="uglifyrestore" value="Restore">
+    <input type="button" class="uglifyclear" value="Clear">
+  </div>
+
   <style type="text/css">
     body {
       cursor: cell;
@@ -143,6 +149,34 @@
       top: 0;
       left: 0;
       visibility: none;
+    }
+
+    div.uglifytopbar {
+      position: fixed;
+      width: 400px;
+      height: 10%;
+      padding:0;
+      margin:0;
+      bottom: 0;
+      left: 65%;
+      z-index: 500002;
+      background: #66ccff;
+      opacity: 0.92;
+      filter: alpha(opacity=92);
+    }
+
+    div.uglifytopbar input {
+      position: relative;
+      background: none;
+      border: 2px solid yellow;
+      color: yellow;
+      font-family: Helvetica, Arial, FreeSans, sans-serif;
+      font-size: 40px;
+            top: 50%;
+            left: 10px;
+      -webkit-transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+              transform: translate(0, -50%);
     }
 
     div.uglifytooltip {
@@ -399,10 +433,11 @@
 
     .uglifycarousel {
       display: none;
+      z-index: 500002 !important;
     }
 
     div.uglifycarousel {
-      position: absolute !important;
+      position: fixed !important;
       left: 50% !important;
       top: 50% !important;
       -webkit-transform: translate(-50%, -50%) !important;
@@ -414,7 +449,6 @@
       position: relative;
       display: none;
       cursor: pointer !important;
-      z-index: 500002 !important;
     }
 
     div.uglifycarousel .uglifydisplayimg {
@@ -423,11 +457,10 @@
 
     a.uglifycarousel {
       color: #000000 !important;
-      position: absolute !important;
+      position: fixed !important;
       font-size: 250px !important;
       opacity: 0.60 !important;
       filter: alpha(opacity=60) !important;
-      z-index: 500002 !important;
     }
 
     a.uglifyback {
@@ -559,6 +592,19 @@
 
     div.uglifyanimationtargets .uglifybounceselect {
       margin-top: 25px;
+    }
+
+    @media(max-width: 1000px) {
+      div.uglifytopbar {
+        top: 0%;
+        left: 0%;
+        height: 40px;
+        width: 240px;
+      }
+
+      div.uglifytopbar input {
+        font-size: 20px;
+      }
     }
   </style>
   <%= javascript_include_tag 'application' %>
