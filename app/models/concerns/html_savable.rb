@@ -41,8 +41,8 @@ module HTMLSavable
   end
 
   def style_node(node, attribute, ugly_style)
-    style = node.styles
+    style = node.try(:styles)
     style[attribute] = ugly_style
-    node.styles = style
+    node.try(:styles) = style
   end
 end
