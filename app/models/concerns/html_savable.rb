@@ -41,8 +41,9 @@ module HTMLSavable
   end
 
   def style_node(node, attribute, ugly_style)
-    style = node.try(:styles)
+    style = node.styles
     style[attribute] = ugly_style
-    node.try(:styles) = style
+    node.styles = style
+    rescue NoMethodError
   end
 end
