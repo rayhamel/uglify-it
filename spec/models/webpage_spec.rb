@@ -12,5 +12,5 @@ RSpec.describe Webpage, type: :model do
   it { should_not have_valid(:title).when('a' * 256) }
   it { should_not have_valid(:url).when('') }
   it { should_not have_valid(:url).when('www') }
-  it { should_not have_valid(:url).when('w') * 512 }
+  it { should_not have_valid(:url).when('w' * 512) }
 end
