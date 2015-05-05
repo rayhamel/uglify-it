@@ -44,6 +44,5 @@ module HTMLSavable
     style = node.styles
     style[attribute] = ugly_style
     node.styles = style
-    rescue NoMethodError
   end
 end
