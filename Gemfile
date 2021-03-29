@@ -53,7 +53,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'launchy'
   gem 'coveralls', require: false
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'valid_attribute'
 end
 
