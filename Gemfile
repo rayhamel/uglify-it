@@ -42,8 +42,11 @@ group :production do
   gem 'rails_serve_static_assets'
 end
 
-group :development, :test do
+group :development do
   gem 'web-console', '>= 2.1.3'
+end
+
+group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'capybara'
@@ -52,5 +55,8 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'factory_girl_rails'
   gem 'valid_attribute'
-  gem 'shoulda-matchers', require: false
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
