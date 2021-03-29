@@ -1,5 +1,5 @@
   <%= yield %>
-  <%= link_to 'Page not loading correctly?', "http://uglifyit.herokuapp.com#{webpage_path(@webpage)}", class: 'uglifyhelplink' %>
+  <%= link_to 'Page not loading correctly?', "#{url_for protocol: 'http'}", class: 'uglifyhelplink' %>
 
   <div class="uglifyoverlay"></div>
 

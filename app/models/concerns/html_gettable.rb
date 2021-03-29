@@ -34,7 +34,7 @@ module HTMLGettable
         url_param = tags[node.name]
         link = node[url_param]
         next if link.nil? || link.empty?
-        uri = URI.parse(URI.escape(link))
+        uri = URI.parse(URI.encode_www_form_component(link))
         next if uri.host
         uri.scheme = remote_url.scheme
         uri.host = remote_url.host

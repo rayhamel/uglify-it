@@ -1,4 +1,4 @@
-class CreateWebpages < ActiveRecord::Migration
+class CreateWebpages < ActiveRecord::Migration[4.2]
   def change
     create_table :webpages do |t|
       t.text :html, null: false
